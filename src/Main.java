@@ -1,10 +1,9 @@
 import java.util.Scanner;
 
 public class Main {
-    public static Employee[] storageOfWorkers = new Employee[10];
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        EmployeeBook storageOfWorkers = new EmployeeBook(10);
         String lineStripping;
         String checkOfContinue;
         String fullNameOfWorker;
@@ -22,7 +21,7 @@ public class Main {
             salary = in.nextInt();
             lineStripping = in.nextLine();
 
-            storageOfWorkers[i] = new Employee(fullNameOfWorker, department, salary);
+            storageOfWorkers.addWorker(new Employee(fullNameOfWorker, department, salary));
 
             System.out.println("Хотите продолжить?(да/нет)");
             checkOfContinue = in.nextLine();
