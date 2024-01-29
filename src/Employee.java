@@ -3,7 +3,7 @@ public class Employee {
     private int department;
     private int salary;
     private int id;
-    private static int idCount = 0;
+    private static int idCount;
 
     public Employee(String fullNameOfWorker, int department, int salary) {
         this.fullNameOfWorker = fullNameOfWorker;
@@ -28,8 +28,6 @@ public class Employee {
     public int getId() {
         return this.id;
     }
-
-    public static int getIdCount() {return idCount;}
 
     public void setDepartment(int department) {
         this.department = department;

@@ -91,7 +91,7 @@ public class EmployeeBook {
     }
 
     public void allWorkerFullInfo() {
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             System.out.println(storageOfWorkers[i].toString());
         }
     }
@@ -99,7 +99,7 @@ public class EmployeeBook {
     public void costsPerMonth() {
         int salaryAmount = 0;
 
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             salaryAmount += storageOfWorkers[i].getSalary();
         }
 
@@ -110,8 +110,11 @@ public class EmployeeBook {
         int minSalary = storageOfWorkers[0].getSalary();
         int workerId = 0;
 
-        for (int i = 1; i < Employee.getIdCount(); i++) {
-            if (storageOfWorkers[i].getSalary() < minSalary) {minSalary = storageOfWorkers[i].getSalary(); workerId = i;}
+        for (int i = 1; i < storageOfWorkers.length; i++) {
+            if (storageOfWorkers[i].getSalary() < minSalary) {
+                minSalary = storageOfWorkers[i].getSalary();
+                workerId = i;
+            }
         }
 
         System.out.println(storageOfWorkers[workerId].toString());
@@ -121,8 +124,11 @@ public class EmployeeBook {
         int maxSalary = storageOfWorkers[0].getSalary();
         int workerId = 0;
 
-        for (int i = 1; i < Employee.getIdCount(); i++) {
-            if (storageOfWorkers[i].getSalary() > maxSalary) {maxSalary = storageOfWorkers[i].getSalary(); workerId = i;}
+        for (int i = 1; i < storageOfWorkers.length; i++) {
+            if (storageOfWorkers[i].getSalary() > maxSalary) {
+                maxSalary = storageOfWorkers[i].getSalary();
+                workerId = i;
+            }
         }
 
         System.out.println(storageOfWorkers[workerId].toString());
@@ -131,21 +137,21 @@ public class EmployeeBook {
     public void averageSalary() {
         int salaryAmount = 0;
 
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             salaryAmount += storageOfWorkers[i].getSalary();
         }
 
-        System.out.println(salaryAmount / (Employee.getIdCount()));
+        System.out.println(salaryAmount / (storageOfWorkers.length));
     }
 
     public void allWorkersName() {
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             System.out.println(storageOfWorkers[i].getFullNameOfWorker());
         }
     }
 
     public void salaryIndexation(int percent) {
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             int newSalary = (int)(storageOfWorkers[i].getSalary() + (storageOfWorkers[i].getSalary() * percent / 100));
             storageOfWorkers[i].setSalary(newSalary);
         }
@@ -167,7 +173,7 @@ public class EmployeeBook {
 
         int workerId = 0;
 
-        for (int i = iCount; i < Employee.getIdCount(); i++) {
+        for (int i = iCount; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getDepartment() == department && storageOfWorkers[i].getSalary() <= minSalary) {
                 minSalary = storageOfWorkers[i].getSalary();
                 workerId = i;
@@ -181,7 +187,7 @@ public class EmployeeBook {
         int maxSalary = 0;
         int workerId = 0;
 
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getDepartment() == department && storageOfWorkers[i].getSalary() >= maxSalary) {
                 maxSalary = storageOfWorkers[i].getSalary();
                 workerId = i;
@@ -194,7 +200,7 @@ public class EmployeeBook {
     public void costsPerMonth(int department) {
         int salaryAmount = 0;
 
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getDepartment() == department) {
                 salaryAmount += storageOfWorkers[i].getSalary();
             }
@@ -207,7 +213,7 @@ public class EmployeeBook {
         int salaryAmount = 0;
         int numbOfWorkers = 0;
 
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getDepartment() == department) {
                 salaryAmount += storageOfWorkers[i].getSalary();
                 numbOfWorkers++;
@@ -218,7 +224,7 @@ public class EmployeeBook {
     }
 
     public void salaryIndexation(int department, int percent) {
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getDepartment() == department) {
                 int newSalary = (int) (storageOfWorkers[i].getSalary() + (storageOfWorkers[i].getSalary() * percent / 100));
                 storageOfWorkers[i].setSalary(newSalary);
@@ -227,7 +233,7 @@ public class EmployeeBook {
     }
 
     public void allWorkerFullInfo(int department) {
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getDepartment() == department) {
                 System.out.println(storageOfWorkers[i].getFullNameOfWorker() + " " +
                         storageOfWorkers[i].getSalary() + " " + storageOfWorkers[i].getId());
@@ -236,7 +242,7 @@ public class EmployeeBook {
     }
 
     public void salaryMoreThanNumb(int numb) {
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getSalary() >= numb) {
                 System.out.println(storageOfWorkers[i].getFullNameOfWorker() + " " +
                         storageOfWorkers[i].getSalary() + " " + storageOfWorkers[i].getId());
@@ -245,7 +251,7 @@ public class EmployeeBook {
     }
 
     public void salaryLessThanNumb(int numb) {
-        for (int i = 0; i < Employee.getIdCount(); i++) {
+        for (int i = 0; i < storageOfWorkers.length; i++) {
             if (storageOfWorkers[i].getSalary() < numb) {
                 System.out.println(storageOfWorkers[i].getFullNameOfWorker() + " " +
                         storageOfWorkers[i].getSalary() + " " + storageOfWorkers[i].getId());
